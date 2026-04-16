@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>SoulTerm</title>
+    <!-- 先引入 xterm 默认样式，再叠加项目自定义外观。 -->
+    <link rel="stylesheet" href="../node_modules/xterm/css/xterm.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- 标题栏只负责展示状态信息，终端交互区域在主内容区。 -->
+      <header class="titlebar">
+        <div class="titlebar-copy">
+          <p class="eyebrow">SoulTerm</p>
+          <h1>SoulTerm</h1>
+        </div>
+        <div class="titlebar-actions">
+          <div
+            class="drag-handle"
+            aria-label="拖动窗口"
+            role="presentation"
+            title="按住这里拖动窗口"
+          >
+            <span class="drag-handle-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 2.5 15 5.7 13 5.8V10h4.2l.1-2 3.2 3-3.2 3-.1-2H13v4.2l2 .1-3 3.2-3-3.2 2-.1V12H6.8l-.1 2-3.2-3 3.2-3 .1 2H11V5.8l-2-.1 3-3.2Z"
+                />
+              </svg>
+            </span>
+            <span class="drag-handle-label">拖动</span>
+          </div>
+          <button id="themeToggle" class="titlebar-button titlebar-button-theme" type="button">
+            透明模式
+          </button>
+          <button id="passthroughToggle" class="titlebar-button" type="button">
+            穿透：开
+          </button>
+          <div class="status-pill">Shell attached</div>
+          <button id="minimizeButton" class="titlebar-button window-button" type="button" aria-label="最小化">
+            _
+          </button>
+          <button id="closeButton" class="titlebar-button window-button window-button-close" type="button" aria-label="关闭">
+            ×
+          </button>
+        </div>
+      </header>
+      <!-- xterm.js 会把终端界面挂载到这个容器中。 -->
+      <main class="terminal-frame">
+        <div id="terminal">
+          <div id="terminalView" class="terminal-view" aria-label="终端视图"></div>
+          <div id="terminalNative" class="terminal-native-layer" aria-hidden="true"></div>
+          <textarea
+            id="terminalInputProxy"
+            class="terminal-input-proxy"
+            autocapitalize="off"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            tabindex="-1"
+            aria-hidden="true"
+          ></textarea>
+        </div>
+      </main>
+    </div>
+
+    <!-- 当前项目直接用全局脚本挂载 xterm.js，避免额外构建链路。 -->
+    <script src="../node_modules/xterm/lib/xterm.js"></script>
+    <script src="../node_modules/xterm-addon-fit/lib/xterm-addon-fit.js"></script>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

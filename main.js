@@ -189,7 +189,7 @@ function createWindow() {
 
   // 使用更高一级的置顶层级，确保窗口保持在普通应用之上。
   window.setAlwaysOnTop(true, "screen-saver");
-  window.loadFile(path.join(__dirname, "renderer", "index.html"));
+  window.loadFile(path.join(__dirname, "renderer", "dist", "index.html"));
 
   window.on("resize", () => {
     saveWindowState(window);

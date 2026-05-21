@@ -140,7 +140,7 @@ __前后加上下划线也可以达到同样的效果__
 | 里斯 | 17   | 男   |
 
 **嵌入自定义HTML内容**(支持css样式)：<span style="color: red;font-size: 30px;">一张壁纸</span>
-<img style="width: 400px;height:250px" src="C:\Users\administered\OneDrive\Desktop\GIT-DEMO\images\WallpaperEngineOverride_randomAPJXXT.jpg">
+<img style="width: 400px;height:250px" src="C:\Users\73237\Pictures\Screenshots\屏幕截图 2025-09-06 132358.png">
 
 **嵌入网页视频：**
 
